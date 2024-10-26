@@ -1,0 +1,31 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: always
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://127.0.0.1:11434
+      - COMFYUI_BASE_URL=http://127.0.0.1:8188
+      - OPENAI_API_BASE_URLS=https://api.openai.com/v1
+      - OPENAI_API_KEYS=${OPENAI_API_KEY}
+      - COMFYUI_FLUX=true
+      - COMFYUI_FLUX_FP8_CLIP=true
+      - COMFYUI_SD3=false
+      - ENABLE_IMAGE_GENERATION=True
+      - ENABLE_RAG_WEB_SEARCH=True
+      - RAG_WEB_SEARCH_ENGINE=searxng
+    volumes:
+      - open-webui:/app/backend/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  open-webui:
