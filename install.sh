@@ -28,15 +28,6 @@ sudo apt-get update
 # Install latest docker version
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Post docker install steps - run docker without sudo
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Start docker on boot
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
-
 # Install nvidia container toolkit
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
@@ -49,4 +40,12 @@ sudo apt-get install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 
+# Post docker install steps - run docker without sudo
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Start docker on boot
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 
