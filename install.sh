@@ -1,5 +1,5 @@
 # Install Nvidia Drivers for Ubuntu24.04
-ubuntu="ubuntu2404"
+distro="ubuntu2404"
 arch="x86_64"
 sudo apt-get install linux-headers-$(uname -r)
 wget https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/cuda-keyring_1.1-1_all.deb
