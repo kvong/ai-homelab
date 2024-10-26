@@ -4,6 +4,6 @@ cd ComfyUI
 
 docker build -t comfyui-gguf:latest .
 
-docker run --name comfyui -p 8188:8188 --gpus all \
-  -v /home/mukul/dev-ai/vison/models:/app/models \
+docker run --name comfyui --restart=always -p 8188:8188 --gpus all \
+  -v /home/blank/ai-homelab/comfyui-docker/models:/app/models \
   -d comfyui-gguf:latest
