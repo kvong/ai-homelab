@@ -9,6 +9,10 @@ Containerize  OpenWebUI, Ollama, and ComfyUI. Integrate Ollama and ComfyUI with 
 - ComfyUI: 8188
 
 ## Ollama
+Download an Ollama model
+```
+docker exec -it ollama ollama pull qwen2.5
+```
 Start a chat with llama3.1 from the terminal.
 ```
 docker exec -it ollama ollama run llama3.1
