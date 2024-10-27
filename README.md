@@ -1,6 +1,6 @@
 # AI Homelab with Docker with a GPU
 
-Containerize  OpenWebUI, Ollama, and ComfyUI. Integrate Ollama and ComfyUI with OpenWebUI.
+Containerized OpenWebUI, Ollama, and ComfyUI. Integrate Ollama and ComfyUI with OpenWebUI. This set up was deployed on a Proxmox VM with 4 cores, 32Gb of RAM, and a 3090 via PCI Passthrough.
 
 ## Ports
 - Ollama: 11434
