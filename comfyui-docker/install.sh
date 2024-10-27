@@ -1,6 +1,7 @@
 git clone https://github.com/comfyanonymous/ComfyUI.git
 cp Dockerfile ComfyUI/
 cd ComfyUI
+cp -r models ../
 
 docker build -t comfyui-gguf:latest .
 
