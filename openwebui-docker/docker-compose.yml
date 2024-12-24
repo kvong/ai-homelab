@@ -16,6 +16,9 @@ services:
       - ENABLE_IMAGE_GENERATION=True
       - ENABLE_RAG_WEB_SEARCH=True
       - RAG_WEB_SEARCH_ENGINE=searxng
+      - RAG_WEB_SEARCH_RESULT_COUNT=3
+      - RAG_WEB_SEARCH_CONCURRENT_REQUESTS=10
+      - SEARXNG_QUERY_URL=http://127.0.0.1:8181/search?q=<query>
     volumes:
       - open-webui:/app/backend/data
     deploy:
